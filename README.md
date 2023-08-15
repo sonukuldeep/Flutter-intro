@@ -30,6 +30,7 @@ git clone
 lib
 ├── main.dart
 └── currency_converter_material.dart
+```
 
 ## Badges
 

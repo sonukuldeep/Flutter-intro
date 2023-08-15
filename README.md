@@ -1,8 +1,8 @@
 # Flutter app
 
-## Currency convertor app
+## Currency converter app
 
-This is my first flutter app. 😁😁 Super excited to learn flutter and add flutter to my arcenal.
+This is my first flutter app. 😁😁 Super excited to learn flutter and add flutter to my arsenal.
 
 A heartly thanks to [Rivaan Ranawat](https://www.youtube.com/watch?v=CzRQ9mnmh44), the creator of the tutorial on yt without whom this project would never have been possible.
 

@@ -12,6 +12,13 @@ class _CurrencyConverterMaterialPage
     extends State<CurrencyConverterMaterialPage> {
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
+
+  void convert() {
+    setState(() {
+      result = double.parse(textEditingController.text) * 81;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     const border = OutlineInputBorder(
@@ -34,23 +41,23 @@ class _CurrencyConverterMaterialPage
         title: const Text("Currency converter"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            /// text
-            Text(
-              'INR $result',
-              style: const TextStyle(
-                fontSize: 45,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 255, 255, 255),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              /// text
+              Text(
+                'INR ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}',
+                style: const TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
               ),
-            ),
 
-            // text input
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              // text input
+              TextField(
                 controller: textEditingController,
                 keyboardType: TextInputType.number,
                 style: const TextStyle(color: Colors.black),
@@ -65,17 +72,12 @@ class _CurrencyConverterMaterialPage
                   fillColor: Colors.white,
                 ),
               ),
-            ),
-
-            //button
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: TextButton(
-                onPressed: () {
-                  setState(() {
-                    result = double.parse(textEditingController.text) * 81;
-                  });
-                },
+              const SizedBox(
+                height: 10,
+              ),
+              //button
+              TextButton(
+                onPressed: convert,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
@@ -85,9 +87,9 @@ class _CurrencyConverterMaterialPage
                   ),
                 ),
                 child: const Text("Convert"),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
